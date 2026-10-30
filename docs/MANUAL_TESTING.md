@@ -1,12 +1,12 @@
 # Live M1 acceptance checklist
 
-Status: **not executed**. The foundation contains no working Discord/Ollama runtime.
+Status: **not executed**. The runtime is implemented; credentials and local Ollama setup are still needed.
 Record actual OS, Python, discord.py, Ollama version, model tag/quantization, and date
 when testing. Keep tokens and personal Discord IDs out of results/screenshots.
 
 ## Preconditions
 
-- [ ] Offline tests pass and runtime milestones A-C are implemented.
+- [x] Offline tests pass and runtime milestones A-C are implemented.
 - [ ] One host runs Ollama on loopback and has the explicitly selected model.
 - [ ] Dedicated Discord app supports User Install; no webhook interaction endpoint.
 - [ ] Host's ignored `.env` contains valid token and at least two authorized users.

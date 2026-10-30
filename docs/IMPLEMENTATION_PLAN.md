@@ -1,8 +1,8 @@
 # M1 implementation handoff
 
-The initial user request limits this batch to research, planning, and foundation.
-Stop after validating the scaffold. The next coding batch should implement A-D in
-order, without redesigning the agreed interfaces or starting M2/M3.
+The owner authorized implementation after publishing the foundation. A-C are now
+implemented and verified offline. D documentation is ready; real Discord/Ollama
+acceptance is the remaining delivery gate. M2/M3 remain out of scope.
 
 ## State at handoff
 
@@ -11,13 +11,18 @@ order, without redesigning the agreed interfaces or starting M2/M3.
 - [x] Research official Discord/Ollama APIs and pin available dependency versions.
 - [x] Create installable `src/` package, CLI help/version, and provider contract.
 - [x] Add offline dependency compatibility/import checks and documentation.
-- [ ] Finish A: runtime settings parser, validation, and tests.
-- [ ] B: working Discord -> Ollama -> Discord vertical slice.
-- [ ] C: resource limits, error hardening, shutdown, and boundary tests.
+- [x] Finish A: runtime settings parser, validation, and tests.
+- [x] B: working Discord -> Ollama -> Discord vertical slice.
+- [x] C: resource limits, error hardening, shutdown, and boundary tests.
 - [ ] D: user-ready documentation, review, and genuine group DM acceptance.
 
-The skeleton modules explicitly mark planned work. Do not mistake a passing
-foundation suite for a working bot or claim milestone A is fully delivered.
+D documentation and offline validation are ready. The remaining gate is the real
+group DM checklist, followed by the owner's license decision before licensed release.
+Current evidence: 123 offline tests, Ruff lint/format, dependency validation, and
+wheel installation smoke test pass on Windows/Python 3.13. CI adds Linux/Python 3.12.
+
+The modules now contain the M1 runtime. Automated tests use HTTP mocks and fake
+interactions; do not confuse offline success with real group DM acceptance.
 
 ## A: configuration and runtime foundation
 
@@ -169,5 +174,5 @@ Needed before live acceptance: Ollama installed/running and a chosen downloaded
 model; a dedicated configured Discord application/token; at least two test accounts
 and a group DM, including a second allowed user to prove shared capacity and a
 denied user to prove authorization. Keep secrets/IDs in ignored local config.
-GitHub CLI currently needs reauthentication before remote checks with permissions.
-None of these blocks the next bulk implementation batch.
+GitHub authentication and public repository publication are complete. The runtime
+can now be installed and launched once the local Discord/Ollama setup is supplied.

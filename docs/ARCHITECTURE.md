@@ -1,7 +1,6 @@
 # M1 architecture
 
-Status: design frozen for the next implementation batch; only the CLI scaffold,
-provider contract, packaging, and offline compatibility checks exist today.
+Status: implemented and verified offline. Live group DM acceptance remains pending.
 
 ## Boundaries
 
@@ -61,7 +60,7 @@ Per-user rate limiting is deferred until observed use justifies it.
 
 ## Startup and shutdown
 
-The future CLI parses arguments first, so help/version never require credentials.
+The CLI parses arguments first, so help/version never require credentials.
 Load `.env` from the working directory explicitly, with environment variables taking
 precedence and interpolation disabled. Validate before network access. Configure a
 content-free application logger and suppress verbose dependency logs; do not call

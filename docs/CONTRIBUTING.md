@@ -18,25 +18,26 @@ python -m ruff format --check .
 
 Use your environment's Python path if the venv is not activated. Run focused tests
 while developing, and the full offline suite before delivering a milestone. The
-current suite only verifies the foundation; add behavior tests with implementation.
+suite covers configuration, provider failures, Discord safety, and lifecycle. Add
+behavior tests alongside changes; leave live tests in the manual checklist.
 
 Review `git diff` and `git status --short` before committing named files. Never stage
 `.env`, credentials, real user IDs, model weights, or transcript files. Make small,
 coherent commits; describe behavior and validation in a PR. Avoid blanket dependency
 updates and unsolicited architecture/framework changes.
 
-Once the actual repository and your write access are confirmed, the normal workflow
-is a feature branch, push, PR, review, merge. Example future commands:
+The public repository is https://github.com/GoatsSoftware/GoatLLM. Use a feature
+branch and a PR for normal contributions:
 
 ```bash
-git remote add origin https://github.com/GoatsSoftware/GoatLLM.git
 git push -u origin feature/short-description
 gh pr create --base main --fill
 ```
 
-These commands are documentation, not actions already performed. Verify the remote
-first; the initial public probe returned 404, and local `gh` authentication was invalid.
-Do not create an organization repository merely to make these commands work.
+If GitHub CLI appears unauthenticated only inside a restricted Windows sandbox,
+check from the user's terminal before resetting working credentials. Git ownership
+checks can also differ between the sandbox account and the host account; prefer a
+command-scoped safe.directory for this exact workspace over disabling checks globally.
 
 Runtime safety: keep imports inert, use provider injection, await resource cleanup,
 use fixed safe error messages, and disable mentions on every reply. No real interaction

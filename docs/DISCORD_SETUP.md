@@ -24,7 +24,7 @@ unverified. See [manual testing](MANUAL_TESTING.md).
 6. Enable Discord Developer Mode in the Discord client, copy your numeric user ID,
    and populate `DISCORD_ALLOWED_USER_IDS`. App installation alone grants no GoatLLM
    authorization. Anyone seeing a public response can read it regardless of allowlist.
-7. Once runtime implementation lands, start one host instance. It will sync `/ask`
+7. Start one host instance. It syncs `/ask`
    globally in `setup_hook()`. Global commands are needed for private channels;
    a guild-only development sync is not a substitute. Allow propagation/client
    refresh time if the command does not immediately appear.
@@ -53,7 +53,7 @@ last fifteen minutes. The plan immediately defers admitted requests, then edits 
 original non-ephemeral response. Pre-generation rejections can be ephemeral.
 No intents are needed to receive interactions. No public endpoint or ngrok is needed.
 
-## Troubleshooting when the runtime exists
+## Troubleshooting
 
 - Missing `/ask`: verify User Install on the application and command, global sync,
   PRIVATE_CHANNEL context, installation on the invoking account, and client refresh.
