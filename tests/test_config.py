@@ -112,3 +112,38 @@ def test_file_precedence_and_literal_expansion(configured_env, tmp_path):
 def test_deduplicated_ids(configured_env):
     configured_env.setenv("DISCORD_ALLOWED_USER_IDS", " 123,123, 456 ")
     assert load_settings(None).allowed_user_ids == {123, 456}
+
+
+def test_unreadable_file_error_is_safe(configured_env, monkeypatch):
+    def unreadable(*args, **kwargs):
+        raise OSError("PRIVATE file details")
+
+    monkeypatch.setattr("goatllm.config.load_dotenv", unreadable)
+    with pytest.raises(ConfigError) as caught:
+        load_settings()
+    assert "PRIVATE" not in str(caught.value)
+
+
+def test_malformed_dotenv_does_not_log_source(configured_env, tmp_path, caplog):
+    path = tmp_path / ".env"
+    path.write_text('PRIVATE_SECRET="unterminated\n', encoding="utf-8")
+    load_settings(path)
+    assert "PRIVATE_SECRET" not in caplog.text
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("OLLAMA_TIMEOUT_SECONDS", "600"),
+        ("OLLAMA_KEEP_ALIVE", "1800s"),
+        ("OLLAMA_NUM_CTX", "32768"),
+        ("OLLAMA_NUM_PREDICT", "1"),
+        ("MAX_PROMPT_CHARS", "6000"),
+        ("MAX_CONCURRENT_GENERATIONS", "4"),
+        ("OLLAMA_THINK", "true"),
+        ("DISCORD_COMMAND_NAME", "question"),
+    ],
+)
+def test_valid_overrides(configured_env, field, value):
+    configured_env.setenv(field, value)
+    load_settings(None)

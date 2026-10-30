@@ -18,16 +18,20 @@ def test_cli_help_and_version() -> None:
         assert "goatllm" in result.stdout.lower()
 
 
-def test_unimplemented_runtime_exits_clearly() -> None:
+def test_missing_config_exits_clearly(tmp_path) -> None:
+    environment = {key: value for key, value in os.environ.items() if key != "DISCORD_BOT_TOKEN"}
     result = subprocess.run(
         [sys.executable, "-m", "goatllm"],
         capture_output=True,
         text=True,
+        cwd=tmp_path,
+        env=environment,
         timeout=10,
         check=False,
     )
     assert result.returncode == 2
-    assert "not implemented yet" in result.stderr
+    assert "Configuration error" in result.stderr
+    assert "Traceback" not in result.stderr
 
 
 def test_imports_have_no_network_or_configuration_side_effects() -> None:

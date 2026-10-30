@@ -1,23 +1,18 @@
 """Verify the installed Discord APIs without connecting or registering commands."""
 
 import discord
-from discord import app_commands
+
+from goatllm.discord_app import GoatClient
 
 
-def test_user_install_private_channel_command_payload() -> None:
-    @app_commands.command(name="ask", description="Ask the locally hosted LLM")
-    @app_commands.allowed_installs(guilds=False, users=True)
-    @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
-    async def ask(interaction: discord.Interaction, prompt: str) -> None:
-        pass
-
-    client = discord.Client(intents=discord.Intents.none())
-    tree = app_commands.CommandTree(client)
-    payload = ask.to_dict(tree)
+def test_user_install_private_channel_command_payload(settings) -> None:
+    client = GoatClient(settings, None)
+    payload = client.tree.get_command("ask").to_dict(client.tree)
     assert discord.__version__ == "2.7.1"
     assert payload["integration_types"] == [1]  # USER_INSTALL
     assert set(payload["contexts"]) == {0, 1, 2}  # GUILD, BOT_DM, PRIVATE_CHANNEL
     assert payload["options"][0]["name"] == "prompt"
+    assert payload["options"][0]["max_length"] == settings.max_prompt_chars
     assert client.intents.value == 0
 
 
