@@ -2,8 +2,9 @@
 
 Read `GoatLLM_Codex_Brief.md`, `docs/IMPLEMENTATION_PLAN.md`, and
 `docs/ARCHITECTURE.md` before changing runtime behavior. The user's latest explicit
-request takes precedence over the original brief. M1 runtime milestones A-C are implemented; documentation is ready and live
-Discord/Ollama acceptance remains pending. Do not start M2/M3.
+request takes precedence over the original brief. M1 runtime milestones A-C are
+implemented; documentation is ready and live Discord/Ollama acceptance remains
+pending. Do not start M2/M3.
 
 - Python 3.12+, src layout, discord.py user installation/private-channel commands,
   local Ollama only, stateless text-only M1. No web frontend or database.

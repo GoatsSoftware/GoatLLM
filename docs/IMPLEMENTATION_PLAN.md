@@ -157,9 +157,9 @@ its assertions can exercise the real command factory.
    live acceptance pending instead of claiming completion.
 4. Review the Git diff for secrets/unrelated files; create coherent local commits
    if Git identity is available. Verify remote existence and authenticated write
-   access before any remote operation. The latest user message permits ordinary
-   commits/PR work, but this batch ends at the local planning milestone; publishing
-   a new remote and selecting a license remain distinct owner decisions.
+   access before any remote operation. The owner authorized ordinary commits/PR
+   work and publication to the public GoatsSoftware/GoatLLM repository. Selecting
+   a license remains an owner decision.
 5. Propose MIT, retain pending status until the owner chooses. Do not ship a made-up
    copyright holder or insert an unapproved LICENSE file.
 
