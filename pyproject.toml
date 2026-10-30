@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools==84.2.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "goatllm"
+version = "0.1.0.dev0"
+description = "A small, self-hosted Discord user application backed by local Ollama"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "discord.py==2.7.1",
+    "httpx==0.28.1",
+    "python-dotenv==1.2.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.2.0",
+    "pytest-asyncio==1.4.1",
+    "ruff==0.17.3",
+]
+
+[project.scripts]
+goatllm = "goatllm.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC"]

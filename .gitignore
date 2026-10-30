@@ -1,0 +1,23 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.log
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+# Local model files and private runtime state do not belong in Git.
+models/
+*.gguf
+.ollama/
