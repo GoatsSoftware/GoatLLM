@@ -75,6 +75,47 @@ These checks validate the foundation only. No live Discord registration, group D
 Ollama inference, GPU behavior, Linux run, or Python 3.12 run has been performed.
 No GitHub publication or commit was made; Git author identity remains unset.
 
+## M1 implementation validation
+
+The owner subsequently authorized public publication and implementation. The public
+repository is https://github.com/GoatsSoftware/GoatLLM; GitHub authentication works
+outside the sandbox's Windows credential boundary. The local repository uses the
+authenticated GitHub profile name and account-derived noreply email. These updates
+supersede the initial authentication, repository, and author-identity findings above.
+
+On 2026-10-30, runtime milestones A-C and the delivery documentation were completed:
+
+- **123 offline tests passed** on Windows/Python 3.13.14, using
+  `python -m pytest -q --basetemp .pytest_cache/tmp` (the sandbox cannot access the
+  host account's default pytest temp directory).
+- Ruff lint/format and `pip check` passed.
+- Built the wheel, installed it into an isolated target directory, and verified
+  its package import location and CLI version from the installed artifact.
+- The suite covers allowlist/configuration bounds and redaction, exact stateless
+  payloads, backend/Discord failures, deadline/response size limits, mention safety,
+  Unicode truncation, non-queueing capacity, cancellation, cleanup, and sync behavior.
+- A small GitHub Actions workflow runs offline checks on Linux/Python 3.12 and
+  Windows/Python 3.13. Record actual CI outcomes separately; the local run alone
+  is not evidence of those environments.
+
+Live Discord, Ollama inference, GPU behavior, and group DM visibility remain
+**unverified**. No model was downloaded. A configured local `.env`, a running Ollama
+service with an explicitly selected model, and test participants are the next gate.
+The manual checklist remains pending and no license choice has been assumed.
+
+## Owner-reported live result and license selection (2026-10-31)
+
+The owner configured Discord, started local Ollama/Qwen, saved the private `.env`,
+and reported that `/ask` works. This supersedes the earlier lack of a live result;
+it does not independently establish other-member visibility, exact model/runtime
+versions, GPU use, or every failure/resource scenario. Those remain individually
+tracked in MANUAL_TESTING.md. Credentials and personal IDs were not copied into
+this record.
+
+The owner selected MIT. Added LICENSE with contributor attribution and declared
+the SPDX license and license file in package metadata. This supersedes the earlier
+pending license decision.
+
 ## Primary references
 
 - [Discord installation/context tutorial](https://docs.discord.com/developers/tutorials/developing-a-user-installable-app)

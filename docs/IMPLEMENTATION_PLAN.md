@@ -1,8 +1,9 @@
 # M1 implementation handoff
 
-The initial user request limits this batch to research, planning, and foundation.
-Stop after validating the scaffold. The next coding batch should implement A-D in
-order, without redesigning the agreed interfaces or starting M2/M3.
+The owner authorized implementation after publishing the foundation. A-C are now
+implemented and verified offline. The owner reported live `/ask` success on
+2026-10-31 and selected MIT. D documentation/license are ready; remaining manual
+scenarios are tracked in MANUAL_TESTING.md. M2/M3 remain out of scope.
 
 ## State at handoff
 
@@ -11,13 +12,18 @@ order, without redesigning the agreed interfaces or starting M2/M3.
 - [x] Research official Discord/Ollama APIs and pin available dependency versions.
 - [x] Create installable `src/` package, CLI help/version, and provider contract.
 - [x] Add offline dependency compatibility/import checks and documentation.
-- [ ] Finish A: runtime settings parser, validation, and tests.
-- [ ] B: working Discord -> Ollama -> Discord vertical slice.
-- [ ] C: resource limits, error hardening, shutdown, and boundary tests.
+- [x] Finish A: runtime settings parser, validation, and tests.
+- [x] B: working Discord -> Ollama -> Discord vertical slice.
+- [x] C: resource limits, error hardening, shutdown, and boundary tests.
 - [ ] D: user-ready documentation, review, and genuine group DM acceptance.
 
-The skeleton modules explicitly mark planned work. Do not mistake a passing
-foundation suite for a working bot or claim milestone A is fully delivered.
+D documentation, the MIT license, and offline validation are ready. The remaining
+gate is completion of the group DM visibility/failure/resource checklist.
+Current evidence: 123 offline tests, Ruff lint/format, dependency validation, and
+wheel installation smoke test pass on Windows/Python 3.13. CI adds Linux/Python 3.12.
+
+The modules now contain the M1 runtime. Automated tests use HTTP mocks and fake
+interactions; do not confuse offline success with real group DM acceptance.
 
 ## A: configuration and runtime foundation
 
@@ -152,11 +158,10 @@ its assertions can exercise the real command factory.
    live acceptance pending instead of claiming completion.
 4. Review the Git diff for secrets/unrelated files; create coherent local commits
    if Git identity is available. Verify remote existence and authenticated write
-   access before any remote operation. The latest user message permits ordinary
-   commits/PR work, but this batch ends at the local planning milestone; publishing
-   a new remote and selecting a license remain distinct owner decisions.
-5. Propose MIT, retain pending status until the owner chooses. Do not ship a made-up
-   copyright holder or insert an unapproved LICENSE file.
+   access before any remote operation. The owner authorized ordinary commits/PR
+   work and publication to the public GoatsSoftware/GoatLLM repository. Selecting
+   the MIT license was subsequently approved by the owner on 2026-10-31.
+5. Preserve the approved MIT LICENSE and its package metadata when distributing.
 
 ## Definition of done and human dependencies
 
@@ -165,9 +170,11 @@ participants can see the Ollama-generated answer, failures do not kill the host,
 resource bounds hold, and GoatLLM persists no conversation content. Passing offline
 tests alone is insufficient to claim that live milestone.
 
-Needed before live acceptance: Ollama installed/running and a chosen downloaded
+Initial live prerequisites: Ollama installed/running and a chosen downloaded
 model; a dedicated configured Discord application/token; at least two test accounts
 and a group DM, including a second allowed user to prove shared capacity and a
 denied user to prove authorization. Keep secrets/IDs in ignored local config.
-GitHub CLI currently needs reauthentication before remote checks with permissions.
-None of these blocks the next bulk implementation batch.
+GitHub authentication and public repository publication are complete. The runtime
+was launched successfully by the owner after local Discord/Ollama configuration.
+Continue the remaining manual checklist without treating the basic success report
+as evidence that all multi-user, failure, and GPU checks have passed.
