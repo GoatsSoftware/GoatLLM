@@ -2,7 +2,8 @@
 
 Start with [README](../README.md), [the original brief](../GoatLLM_Codex_Brief.md), and
 [the implementation plan](IMPLEMENTATION_PLAN.md). Keep contributions within text-only
-M1 until its live acceptance succeeds. The owner has not selected a license yet.
+M1 while its remaining manual checks are completed. The project uses the MIT
+license; preserve the notice in LICENSE when distributing copies.
 
 Create a virtual environment and install `-e '.[dev]'` as shown in the README.
 Use Python 3.12+ and avoid global package installs. Tests use mocks and must not need

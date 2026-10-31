@@ -1,8 +1,9 @@
 # M1 implementation handoff
 
 The owner authorized implementation after publishing the foundation. A-C are now
-implemented and verified offline. D documentation is ready; real Discord/Ollama
-acceptance is the remaining delivery gate. M2/M3 remain out of scope.
+implemented and verified offline. The owner reported live `/ask` success on
+2026-10-31 and selected MIT. D documentation/license are ready; remaining manual
+scenarios are tracked in MANUAL_TESTING.md. M2/M3 remain out of scope.
 
 ## State at handoff
 
@@ -16,8 +17,8 @@ acceptance is the remaining delivery gate. M2/M3 remain out of scope.
 - [x] C: resource limits, error hardening, shutdown, and boundary tests.
 - [ ] D: user-ready documentation, review, and genuine group DM acceptance.
 
-D documentation and offline validation are ready. The remaining gate is the real
-group DM checklist, followed by the owner's license decision before licensed release.
+D documentation, the MIT license, and offline validation are ready. The remaining
+gate is completion of the group DM visibility/failure/resource checklist.
 Current evidence: 123 offline tests, Ruff lint/format, dependency validation, and
 wheel installation smoke test pass on Windows/Python 3.13. CI adds Linux/Python 3.12.
 
@@ -159,9 +160,8 @@ its assertions can exercise the real command factory.
    if Git identity is available. Verify remote existence and authenticated write
    access before any remote operation. The owner authorized ordinary commits/PR
    work and publication to the public GoatsSoftware/GoatLLM repository. Selecting
-   a license remains an owner decision.
-5. Propose MIT, retain pending status until the owner chooses. Do not ship a made-up
-   copyright holder or insert an unapproved LICENSE file.
+   the MIT license was subsequently approved by the owner on 2026-10-31.
+5. Preserve the approved MIT LICENSE and its package metadata when distributing.
 
 ## Definition of done and human dependencies
 
@@ -170,9 +170,11 @@ participants can see the Ollama-generated answer, failures do not kill the host,
 resource bounds hold, and GoatLLM persists no conversation content. Passing offline
 tests alone is insufficient to claim that live milestone.
 
-Needed before live acceptance: Ollama installed/running and a chosen downloaded
+Initial live prerequisites: Ollama installed/running and a chosen downloaded
 model; a dedicated configured Discord application/token; at least two test accounts
 and a group DM, including a second allowed user to prove shared capacity and a
 denied user to prove authorization. Keep secrets/IDs in ignored local config.
 GitHub authentication and public repository publication are complete. The runtime
-can now be installed and launched once the local Discord/Ollama setup is supplied.
+was launched successfully by the owner after local Discord/Ollama configuration.
+Continue the remaining manual checklist without treating the basic success report
+as evidence that all multi-user, failure, and GPU checks have passed.

@@ -1,6 +1,7 @@
 # M1 architecture
 
-Status: implemented and verified offline. Live group DM acceptance remains pending.
+Status: implemented and verified offline; the owner reported live `/ask` success
+on 2026-10-31. Remaining manual checks are recorded in MANUAL_TESTING.md.
 
 ## Boundaries
 

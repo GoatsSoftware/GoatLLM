@@ -3,8 +3,8 @@
 Read `GoatLLM_Codex_Brief.md`, `docs/IMPLEMENTATION_PLAN.md`, and
 `docs/ARCHITECTURE.md` before changing runtime behavior. The user's latest explicit
 request takes precedence over the original brief. M1 runtime milestones A-C are
-implemented; documentation is ready and live Discord/Ollama acceptance remains
-pending. Do not start M2/M3.
+implemented; the owner reported live /ask success on 2026-10-31. Remaining manual
+checks are tracked in docs/MANUAL_TESTING.md. Do not start M2/M3.
 
 - Python 3.12+, src layout, discord.py user installation/private-channel commands,
   local Ollama only, stateless text-only M1. No web frontend or database.
@@ -20,7 +20,7 @@ pending. Do not start M2/M3.
   Run focused pytest tests after changes and full pytest/Ruff at delivery milestones.
 - GitHub auth works outside the sandbox credential boundary; repository is public
   at GoatsSoftware/GoatLLM. Use command-scoped safe.directory for this workspace
-  when Git runs outside the sandbox Windows account. No definitive
-  license was chosen. Do not invent Git author identity or a copyright owner.
+  when Git runs outside the sandbox Windows account. The owner selected MIT;
+  preserve LICENSE and its contributor attribution. Do not invent Git identity.
 - Preserve the original brief. Keep implementation state in the plan current as
   each milestone completes; do not expand into M2/M3.

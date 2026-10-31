@@ -5,8 +5,9 @@ One friend's computer hosts GoatLLM and Ollama; other friends only need Discord 
 access to the application. This is a user-installed Discord application, not a bot
 member added to the group DM.
 
-**Status: M1 text runtime implemented and tested offline; real Discord/Ollama
-acceptance remains pending.** See [manual testing](docs/MANUAL_TESTING.md).
+**Status: M1 text runtime implemented and tested offline. The owner reported a
+successful live `/ask` on 2026-10-31.** Remaining visibility and failure checks are
+tracked in [manual testing](docs/MANUAL_TESTING.md).
 
 ## Install
 
@@ -167,6 +168,4 @@ M1 is text only. Images/ComfyUI (M2), desktop packaging (M3), additional provide
 and explicitly opt-in conversation context remain future work. No database,
 frontend, Docker requirement, or agent framework in M1.
 
-MIT is proposed; the owner has not selected a license, so no definitive grant or
-copyright attribution has been added. Resolve this before advertising the project
-as licensed open source.
+Licensed under the [MIT License](LICENSE).

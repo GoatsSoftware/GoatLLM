@@ -1,6 +1,10 @@
 # Live M1 acceptance checklist
 
-Status: **not executed**. The runtime is implemented; credentials and local Ollama setup are still needed.
+Status: **partially verified by the owner on 2026-10-31**. The owner configured
+Discord and local Ollama/Qwen, launched GoatLLM, and reported that `/ask` works.
+This is user-reported evidence, not an agent-run live test. Visibility to other
+participants and the failure/resource checks below have not been individually
+confirmed. Exact Ollama version, model tag/quantization, and GPU use were not recorded.
 Record actual OS, Python, discord.py, Ollama version, model tag/quantization, and date
 when testing. Keep tokens and personal Discord IDs out of results/screenshots.
 
@@ -17,8 +21,8 @@ when testing. Keep tokens and personal Discord IDs out of results/screenshots.
 
 | Check | Expected outcome | Result |
 | --- | --- | --- |
-| Start host with valid configuration | Gateway ready, global command sync, no prompt/model preload | Pending |
-| Invoke `/ask` in group DM | Prompt acknowledged promptly; final answer visible to other members | Pending |
+| Start host with valid configuration | Gateway ready, global command sync, no prompt/model preload | Owner reports successful launch/use; preload behavior not checked live |
+| Invoke `/ask` in group DM | Prompt acknowledged promptly; final answer visible to other members | Owner reports `/ask` works; other-member visibility/timing not independently confirmed |
 | Invoke from a second allowed account | Same host answers without client-side Python/Ollama | Pending |
 | Invoke from installed but denied account | Private rejection; no Ollama generation | Pending |
 | Submit blank/over-limit prompt | Client or private server-side rejection; host stays up | Pending |

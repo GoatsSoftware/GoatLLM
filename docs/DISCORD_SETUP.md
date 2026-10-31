@@ -1,8 +1,9 @@
 # Discord setup and compatibility
 
 Checked against official documentation and installed `discord.py==2.7.1` on
-2026-10-30. Offline tests verify serialization; live group DM operation remains
-unverified. See [manual testing](MANUAL_TESTING.md).
+2026-10-30. Offline tests verify serialization; the owner reported a successful live
+`/ask` on 2026-10-31. Other-member visibility and remaining manual scenarios are
+tracked in [manual testing](MANUAL_TESTING.md).
 
 ## Application configuration
 

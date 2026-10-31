@@ -103,6 +103,19 @@ Live Discord, Ollama inference, GPU behavior, and group DM visibility remain
 service with an explicitly selected model, and test participants are the next gate.
 The manual checklist remains pending and no license choice has been assumed.
 
+## Owner-reported live result and license selection (2026-10-31)
+
+The owner configured Discord, started local Ollama/Qwen, saved the private `.env`,
+and reported that `/ask` works. This supersedes the earlier lack of a live result;
+it does not independently establish other-member visibility, exact model/runtime
+versions, GPU use, or every failure/resource scenario. Those remain individually
+tracked in MANUAL_TESTING.md. Credentials and personal IDs were not copied into
+this record.
+
+The owner selected MIT. Added LICENSE with contributor attribution and declared
+the SPDX license and license file in package metadata. This supersedes the earlier
+pending license decision.
+
 ## Primary references
 
 - [Discord installation/context tutorial](https://docs.discord.com/developers/tutorials/developing-a-user-installable-app)
